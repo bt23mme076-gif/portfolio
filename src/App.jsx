@@ -1,12 +1,14 @@
-import Cursor   from './components/Cursor'
-import Nav      from './components/Nav'
-import Hero     from './components/Hero'
-import Marquee  from './components/Marquee'
-import Tools    from './components/Tools'
-import Clients  from './components/Clients'
-import Stack    from './components/Stack'
-import CTA      from './components/CTA'
-import Footer   from './components/Footer'
+import Cursor from './components/Cursor'
+import Nav from './components/Nav'
+import Hero from './components/Hero'
+import Marquee from './components/Marquee'
+import Tools from './components/Tools'
+import Clients from './components/Clients'
+import Stack from './components/Stack'
+import CTA from './components/CTA'
+import Footer from './components/Footer'
+import About from './components/About'
+import Testimonials from './components/Testimonials'
 
 export default function App() {
   return (
@@ -16,7 +18,9 @@ export default function App() {
       <main>
         <Hero />
         <Marquee />
+        <About />         // ← new
         <Tools />
+        <Testimonials />  // ← new
         <Clients />
         <Stack />
         <CTA />

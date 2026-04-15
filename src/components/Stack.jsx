@@ -14,7 +14,7 @@ export default function Stack() {
           Tools I ship with.
         </h2>
       </div>
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(110px, 1fr))', gap: 1, background: 'var(--border)', border: '1px solid var(--border)' }}>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(clamp(80px, 25vw, 110px), 1fr))', gap: 1, background: 'var(--border)', border: '1px solid var(--border)' }}>
         {stack.map((s, i) => (
           <div key={i}
             onMouseEnter={e => e.currentTarget.style.background = 'var(--bg3)'}
