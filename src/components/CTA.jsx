@@ -1,0 +1,168 @@
+import { useState } from 'react'
+import { useScrollReveal } from '../hooks/useScrollReveal'
+
+const CATEGORIES = [
+  'SHOPIFY / E-COMM',
+  'AI AUTOMATION',
+  'WEB SCRAPING',
+  'DATA PIPELINE',
+  'DASHBOARD',
+  'CUSTOM TOOL',
+  'SOMETHING ELSE',
+]
+
+// ✅ REPLACE with your actual WhatsApp number (country code + number, no + or spaces)
+const WA_NUMBER = '919753324876'
+const YOUR_EMAIL = 'nitin@atyant.in'
+
+export default function CTA() {
+  const { ref, visible } = useScrollReveal()
+  const [selected, setSelected] = useState([])
+  const [problem, setProblem] = useState('')
+  const [name, setName] = useState('')
+  const [contact, setContact] = useState('')
+  const [loading, setLoading] = useState(false)
+  const [submitted, setSubmitted] = useState(false)
+  const [errors, setErrors] = useState({})
+
+  const toggleChip = (cat) =>
+    setSelected(prev => prev.includes(cat) ? prev.filter(c => c !== cat) : [...prev, cat])
+
+  const validate = () => {
+    const e = {}
+    if (!problem.trim()) e.problem = true
+    if (!contact.trim()) e.contact = true
+    setErrors(e)
+    return !Object.keys(e).length
+  }
+
+  const handleSubmit = async () => {
+    if (!validate()) return
+    setLoading(true)
+    const category = selected.length ? selected.join(', ') : 'General'
+    const msg = `*New Problem Submission*\n\nName: ${name || 'Not provided'}\nContact: ${contact}\nCategory: ${category}\n\nProblem:\n${problem}`
+    await new Promise(r => setTimeout(r, 1200))
+    window.open(`https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(msg)}`, '_blank')
+    setLoading(false)
+    setSubmitted(true)
+  }
+
+  const inp = (err) => ({
+    width: '100%',
+    background: '#0d0d1a',
+    border: `1px solid ${err ? 'rgba(255,100,100,0.5)' : 'rgba(255,255,255,0.1)'}`,
+    borderRadius: 8, padding: '0.75rem 1rem',
+    color: '#f0eff8', fontFamily: "'Space Grotesk', sans-serif",
+    fontSize: '0.88rem', outline: 'none', transition: 'border-color 0.2s',
+  })
+
+  return (
+    <section id="cta" style={{ padding: '6rem 2.5rem', position: 'relative', overflow: 'hidden' }}>
+      <div style={{ position: 'absolute', width: 600, height: 400, background: 'radial-gradient(ellipse, rgba(0,229,160,0.05) 0%, transparent 70%)', top: '50%', left: '50%', transform: 'translate(-50%,-50%)', pointerEvents: 'none' }} />
+
+      <style>{`
+        @keyframes blink  { 0%,100%{opacity:1} 50%{opacity:.25} }
+        @keyframes spin   { to{transform:rotate(360deg)} }
+        @keyframes pulse  { 0%,100%{box-shadow:0 0 0 0 rgba(0,229,160,.3)} 50%{box-shadow:0 0 0 10px rgba(0,229,160,0)} }
+      `}</style>
+
+      <div ref={ref} style={{ position: 'relative', zIndex: 1, maxWidth: 680, margin: '0 auto', opacity: visible ? 1 : 0, transform: visible ? 'translateY(0)' : 'translateY(24px)', transition: 'opacity .7s, transform .7s' }}>
+
+        <div style={{ display: 'inline-flex', alignItems: 'center', gap: 8, background: 'rgba(0,229,160,0.08)', border: '1px solid rgba(0,229,160,0.2)', padding: '6px 16px', borderRadius: 100, fontFamily: "'Space Mono', monospace", fontSize: 11, color: 'var(--green)', letterSpacing: '0.15em', marginBottom: '1.5rem' }}>
+          <div style={{ width: 6, height: 6, background: 'var(--green)', borderRadius: '50%', animation: 'blink 1.5s infinite' }} />
+          OPEN TO WORK — REPLY IN 24HRS
+        </div>
+
+        <h2 style={{ fontSize: 'clamp(2rem,5vw,3.2rem)', fontWeight: 800, letterSpacing: '-0.03em', lineHeight: 1.05, marginBottom: '1rem' }}>
+          Have a problem?<br /><span style={{ color: 'var(--green)' }}>Tell me directly.</span>
+        </h2>
+        <p style={{ color: 'var(--muted)', fontSize: '0.95rem', lineHeight: 1.75, maxWidth: 480, marginBottom: '2.5rem' }}>
+          Drop your problem below — automation, AI, Shopify, scraping, dashboards. I'll reply with whether I can build it and what it'll take.
+        </p>
+
+        {!submitted ? (
+          <div style={{ background: 'var(--bg2)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: 12, padding: '2rem' }}>
+
+            {/* Chips */}
+            <span style={{ fontFamily: "'Space Mono', monospace", fontSize: 10, color: 'var(--muted2)', letterSpacing: '0.15em', marginBottom: 8, display: 'block' }}>WHAT TYPE OF PROBLEM?</span>
+            <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8, marginBottom: '1.5rem' }}>
+              {CATEGORIES.map(cat => (
+                <button key={cat} onClick={() => toggleChip(cat)} data-hover style={{
+                  fontFamily: "'Space Mono', monospace", fontSize: 10, letterSpacing: '0.1em',
+                  padding: '6px 14px', borderRadius: 100,
+                  border: selected.includes(cat) ? '1px solid rgba(0,229,160,0.4)' : '1px solid rgba(255,255,255,0.1)',
+                  background: selected.includes(cat) ? 'rgba(0,229,160,0.08)' : 'transparent',
+                  color: selected.includes(cat) ? 'var(--green)' : 'var(--muted)',
+                  transition: 'all 0.2s',
+                }}>{cat}</button>
+              ))}
+            </div>
+
+            {/* Problem */}
+            <span style={{ fontFamily: "'Space Mono', monospace", fontSize: 10, color: 'var(--muted2)', letterSpacing: '0.15em', marginBottom: 8, display: 'block' }}>DESCRIBE YOUR PROBLEM</span>
+            <textarea value={problem}
+              onChange={e => { if (e.target.value.length <= 500) setProblem(e.target.value); setErrors(p => ({ ...p, problem: false })) }}
+              placeholder="e.g. My Shopify store has 500 orders/month and 20% are failing as NDR. I want to auto-flag risky addresses before dispatch..."
+              style={{ ...inp(errors.problem), resize: 'none', height: 110, display: 'block', marginBottom: 4 }}
+            />
+            <div style={{ fontFamily: "'Space Mono', monospace", fontSize: 10, color: problem.length > 400 ? 'var(--green)' : 'var(--muted2)', textAlign: 'right', marginBottom: '1.25rem' }}>
+              {problem.length} / 500
+            </div>
+
+            {/* Name + Contact */}
+            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem', marginBottom: '1.5rem' }}>
+              <div>
+                <span style={{ fontFamily: "'Space Mono', monospace", fontSize: 10, color: 'var(--muted2)', letterSpacing: '0.15em', marginBottom: 8, display: 'block' }}>YOUR NAME</span>
+                <input type="text" value={name} onChange={e => setName(e.target.value)} placeholder="Rahul Sharma" style={inp(false)} />
+              </div>
+              <div>
+                <span style={{ fontFamily: "'Space Mono', monospace", fontSize: 10, color: 'var(--muted2)', letterSpacing: '0.15em', marginBottom: 8, display: 'block' }}>WHATSAPP / EMAIL</span>
+                <input type="text" value={contact}
+                  onChange={e => { setContact(e.target.value); setErrors(p => ({ ...p, contact: false })) }}
+                  placeholder="+91 98765 43210" style={inp(errors.contact)} />
+              </div>
+            </div>
+
+            {/* Submit */}
+            <button data-hover onClick={handleSubmit} disabled={loading} style={{
+              width: '100%', background: 'var(--green)', color: '#080810',
+              padding: '0.9rem', fontFamily: "'Space Grotesk', sans-serif",
+              fontWeight: 700, fontSize: '0.95rem', borderRadius: 8, border: 'none',
+              display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 10,
+              letterSpacing: '0.02em', opacity: loading ? 0.7 : 1,
+              transition: 'opacity .2s, transform .15s',
+            }}>
+              {loading
+                ? <><div style={{ width: 16, height: 16, border: '2px solid rgba(8,8,16,0.3)', borderTopColor: '#080810', borderRadius: '50%', animation: 'spin 0.7s linear infinite' }} /> Sending...</>
+                : 'Send My Problem →'
+              }
+            </button>
+          </div>
+
+        ) : (
+          <div style={{ background: 'var(--bg2)', border: '1px solid rgba(0,229,160,0.2)', borderRadius: 12, padding: '3rem 2rem', textAlign: 'center' }}>
+            <div style={{ width: 52, height: 52, background: 'rgba(0,229,160,0.08)', border: '1px solid rgba(0,229,160,0.3)', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 1.25rem', fontSize: '1.3rem', animation: 'pulse 2s ease-in-out infinite' }}>✓</div>
+            <h3 style={{ fontSize: '1.3rem', fontWeight: 700, marginBottom: '0.5rem' }}>Got it — I'll be in touch.</h3>
+            <p style={{ color: 'var(--muted)', fontSize: '0.88rem', lineHeight: 1.75 }}>
+              Nitin personally reviews every submission.<br />Expect a reply within 24 hours with a plan.
+            </p>
+            <div style={{ fontFamily: "'Space Mono', monospace", fontSize: 11, color: 'var(--green)', letterSpacing: '0.1em', marginTop: '1.25rem', padding: '8px 16px', background: 'rgba(0,229,160,0.08)', borderRadius: 100, display: 'inline-block' }}>
+              RECEIVED · REVIEWING NOW
+            </div>
+          </div>
+        )}
+
+        {/* Bottom links */}
+        <div style={{ display: 'flex', gap: '1.5rem', justifyContent: 'center', marginTop: '2rem', flexWrap: 'wrap' }}>
+          {[{ l: 'nitin@atyant.in', h: `mailto:${YOUR_EMAIL}` }, { l: 'LinkedIn', h: 'https://linkedin.com/in/nitin-rai' }, { l: 'atyant.in', h: 'https://atyant.in' }].map(({ l, h }) => (
+            <a key={l} href={h} target={h.startsWith('http') ? '_blank' : undefined} rel="noreferrer" data-hover
+              onMouseEnter={e => e.currentTarget.style.color = 'var(--green)'}
+              onMouseLeave={e => e.currentTarget.style.color = 'var(--muted2)'}
+              style={{ fontFamily: "'Space Mono', monospace", fontSize: 11, color: 'var(--muted2)', letterSpacing: '0.1em', transition: 'color .2s', borderBottom: '1px solid rgba(255,255,255,0.06)', paddingBottom: 2 }}
+            >{l}</a>
+          ))}
+        </div>
+      </div>
+    </section>
+  )
+}
