@@ -4,7 +4,8 @@ export default function Hero() {
   return (
     <section style={{
       minHeight: '100vh', display: 'grid', placeItems: 'center',
-      padding: '6rem 2.5rem 4rem', textAlign: 'center',
+      padding: 'var(--section-pad)', textAlign: 'center',
+      paddingTop: '8rem',
       position: 'relative', overflow: 'hidden',
     }}>
       {/* Grid background */}

@@ -15,6 +15,8 @@ export default function Nav() {
       position: 'fixed', top: 0, left: 0, right: 0, zIndex: 100,
       display: 'flex', justifyContent: 'space-between', alignItems: 'center',
       padding: '1.25rem 2.5rem',
+      paddingLeft: 'max(1.25rem, calc((100vw - 1200px) / 2))',
+      paddingRight: 'max(1.25rem, calc((100vw - 1200px) / 2))',
       borderBottom: '1px solid var(--border)',
       background: scrolled ? 'rgba(8,8,16,0.92)' : 'rgba(8,8,16,0.6)',
       backdropFilter: 'blur(20px)',

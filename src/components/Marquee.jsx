@@ -28,8 +28,11 @@ export default function Marquee() {
     }}>
       <style>{`
         @keyframes marquee { from{transform:translateX(0)} to{transform:translateX(-33.33%)} }
+        @media (max-width: 640px) {
+          .marquee-container { gap: 3rem !important; }
+        }
       `}</style>
-      <div style={{
+      <div className="marquee-container" style={{
         display: 'flex', gap: '6rem', whiteSpace: 'nowrap',
         animation: 'marquee 40s linear infinite',
         width: 'max-content'

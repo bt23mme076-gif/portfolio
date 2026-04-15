@@ -23,6 +23,14 @@
   --yellow-dim:rgba(251,191,36,0.08);
   --pink:     #f472b6;
   --pink-dim: rgba(244,114,182,0.08);
+
+  --section-pad: 5rem 2.5rem;
+}
+
+@media (max-width: 768px) {
+  :root {
+    --section-pad: 3rem 1.25rem;
+  }
 }
 
 html { scroll-behavior: smooth; }
@@ -32,10 +40,13 @@ body {
   background: var(--bg);
   color: var(--text);
   overflow-x: hidden;
-  cursor: none;
 }
 
-* { cursor: none !important; }
+/* Custom cursor only for desktop */
+@media (pointer: fine) {
+  body { cursor: none; }
+  * { cursor: none !important; }
+}
 
 a { text-decoration: none; color: inherit; }
 button { border: none; font-family: inherit; background: none; }
@@ -45,3 +56,14 @@ button { border: none; font-family: inherit; background: none; }
 ::-webkit-scrollbar { width: 4px; }
 ::-webkit-scrollbar-track { background: var(--bg); }
 ::-webkit-scrollbar-thumb { background: var(--muted2); border-radius: 2px; }
+
+/* Responsive adjustments */
+.hu2 {
+  font-size: clamp(2rem, 8vw, 6rem) !important;
+}
+
+@media (max-width: 640px) {
+  section {
+    padding: var(--section-pad) !important;
+  }
+}

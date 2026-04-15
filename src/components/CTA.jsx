@@ -57,13 +57,17 @@ export default function CTA() {
   })
 
   return (
-    <section id="cta" style={{ padding: '6rem 2.5rem', position: 'relative', overflow: 'hidden' }}>
+    <section id="cta" style={{ padding: 'var(--section-pad)', position: 'relative', overflow: 'hidden' }}>
       <div style={{ position: 'absolute', width: 600, height: 400, background: 'radial-gradient(ellipse, rgba(0,229,160,0.05) 0%, transparent 70%)', top: '50%', left: '50%', transform: 'translate(-50%,-50%)', pointerEvents: 'none' }} />
 
       <style>{`
         @keyframes blink  { 0%,100%{opacity:1} 50%{opacity:.25} }
         @keyframes spin   { to{transform:rotate(360deg)} }
         @keyframes pulse  { 0%,100%{box-shadow:0 0 0 0 rgba(0,229,160,.3)} 50%{box-shadow:0 0 0 10px rgba(0,229,160,0)} }
+        @media (max-width: 600px) {
+          .cta-grid { grid-template-columns: 1fr !important; }
+          .cta-form { padding: 1.5rem !important; }
+        }
       `}</style>
 
       <div ref={ref} style={{ position: 'relative', zIndex: 1, maxWidth: 680, margin: '0 auto', opacity: visible ? 1 : 0, transform: visible ? 'translateY(0)' : 'translateY(24px)', transition: 'opacity .7s, transform .7s' }}>
@@ -81,7 +85,7 @@ export default function CTA() {
         </p>
 
         {!submitted ? (
-          <div style={{ background: 'var(--bg2)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: 12, padding: '2rem' }}>
+          <div className="cta-form" style={{ background: 'var(--bg2)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: 12, padding: '2rem' }}>
 
             {/* Chips */}
             <span style={{ fontFamily: "'Space Mono', monospace", fontSize: 10, color: 'var(--muted2)', letterSpacing: '0.15em', marginBottom: 8, display: 'block' }}>WHAT TYPE OF PROBLEM?</span>
@@ -110,7 +114,7 @@ export default function CTA() {
             </div>
 
             {/* Name + Contact */}
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem', marginBottom: '1.5rem' }}>
+            <div className="cta-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem', marginBottom: '1.5rem' }}>
               <div>
                 <span style={{ fontFamily: "'Space Mono', monospace", fontSize: 10, color: 'var(--muted2)', letterSpacing: '0.15em', marginBottom: 8, display: 'block' }}>YOUR NAME</span>
                 <input type="text" value={name} onChange={e => setName(e.target.value)} placeholder="Rahul Sharma" style={inp(false)} />

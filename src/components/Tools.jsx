@@ -79,7 +79,7 @@ export default function Tools() {
   const { ref, visible } = useScrollReveal()
 
   return (
-    <section id="tools" style={{ padding: '5rem 2.5rem' }}>
+    <section id="tools" style={{ padding: 'var(--section-pad)' }}>
       <div ref={ref} style={{
         opacity: visible ? 1 : 0, transform: visible ? 'translateY(0)' : 'translateY(20px)',
         transition: 'opacity .6s ease, transform .6s ease',
@@ -98,7 +98,7 @@ export default function Tools() {
 
       <div style={{
         display: 'grid',
-        gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
+        gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
         gap: 1, background: 'var(--border)',
         border: '1px solid var(--border)',
       }}>
