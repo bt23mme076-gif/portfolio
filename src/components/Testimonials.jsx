@@ -24,9 +24,9 @@ const testimonials = [
     },
     {
         quote: "Three dashboards became one Google Sheet. Our entire ops team now tracks Shopify, Meta ROAS, and Azure data in one place — updated every 6 hours automatically.",
-        name: 'Proskii Team',
+        name: 'B2C business',
         role: 'High-Protein Cereal Brand',
-        badge: 'PROSKII',
+        badge: 'B2C',
         badgeBg: 'rgba(255,180,0,0.08)',
         badgeColor: '#fbbf24',
         initial: 'PR',

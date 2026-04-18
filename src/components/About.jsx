@@ -132,7 +132,7 @@ export default function About() {
                             lineHeight: 1.85, maxWidth: 520, marginTop: '0.75rem',
                         }}>
                             Founder of{' '}
-                            <a href="https://atyant.in" target="_blank" rel="noreferrer"
+                            <a href="https://www.atyant.tech/" target="_blank" rel="noreferrer"
                                 style={{ color: 'var(--green)', textDecoration: 'none', borderBottom: '1px solid rgba(0,229,160,0.3)' }}>
                                 Atyant.Tech
                             </a>{' '}
