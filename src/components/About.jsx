@@ -1,13 +1,13 @@
 import { useScrollReveal } from '../hooks/useScrollReveal'
 
-// ✅ REPLACE with your actual photo URL (Cloudinary, GitHub, or any CDN link)
-const PHOTO_URL = 'https://media.licdn.com/dms/image/v2/D4D03AQGE4M-lrs0hOA/profile-displayphoto-shrink_400_400/B4DZQ1YAbwGgAg-/0/1736062273958?e=1778112000&v=beta&t=9gSX7Q6W46qjY3es_HtjseTvmdxDn85sRTSaxsLaVsg' // placeholder – replace this!
+// ✅ Using LinkedIn profile photo proxy (won't expire)
+const PHOTO_URL = 'https://unavatar.io/linkedin/nitin-rai-479ab7288'
 
 const stats = [
-    { num: '7+', label: 'TOOLS SHIPPED' },
-    { num: '5+', label: 'REAL CLIENTS' },
-    { num: '24hr', label: 'REPLY TIME' },
-    { num: '₹0', label: 'TEMPLATES USED' },
+    { num: '1500+', label: 'USERS SERVED' },
+    { num: '22%', label: 'AVG NDR DROP' },
+    { num: '<24hr', label: 'RESPONSE TIME' },
+    { num: '$500+', label: 'PROJECTS FROM' },
 ]
 
 export default function About() {
@@ -74,7 +74,7 @@ export default function About() {
                             objectFit: 'cover',
                             borderRadius: 10,
                             display: 'block',
-                            filter: 'grayscale(20%)',
+                            filter: 'grayscale(15%)',
                         }}
                     />
                     {/* Green dot badge */}
@@ -104,7 +104,7 @@ export default function About() {
                             display: 'flex', alignItems: 'center', gap: 8,
                             justifyContent: 'inherit',
                         }}>
-                            <span style={{ display: 'none', width: 20, height: 1, background: 'var(--green)' }} className="desktop-line" />
+                            <span style={{ display: 'none', width: 15, height: 1, background: 'var(--green)' }} className="desktop-line" />
                             WHO I AM
                         </div>
                         <style>{`
@@ -115,30 +115,27 @@ export default function About() {
                             fontSize: 'clamp(1.8rem,4vw,2.8rem)', fontWeight: 800,
                             letterSpacing: '-0.02em', lineHeight: 1.1, marginBottom: '1.25rem',
                         }}>
-                            Engineer.<br />
-                            <span style={{ color: 'var(--green)' }}>Full-time builder.</span>
+                            I'm Nitin.<br />
+                            <span style={{ color: 'var(--green)' }}>I build systems that save you money.</span>
                         </h2>
 
                         <p style={{
                             color: 'var(--muted)', fontSize: '0.95rem',
-                            lineHeight: 1.85, maxWidth: 520,
+                            lineHeight: 1.85, maxWidth: 515,
                         }}>
-                            I'm Nitin Rai — an AI automation builder and engineer who creates custom tools,
-                            Shopify systems, internal workflows, and data pipelines for businesses that need operations to run smarter.
+                            I'm a 21-year-old full-stack developer from India who helps US small businesses automate operations, recover lost revenue, and scale without adding headcount.
                         </p>
 
                         <p style={{
                             color: 'var(--muted)', fontSize: '0.95rem',
-                            lineHeight: 1.85, maxWidth: 520, marginTop: '0.75rem',
+                            lineHeight: 1.85, maxWidth: 515, marginTop: '0.75rem',
                         }}>
-                            Founder of{' '}
-                            <a href="https://www.atyant.tech/" target="_blank" rel="noreferrer"
+                            I built{' '}
+                            <a href="https://atyant.in" target="_blank" rel="noreferrer"
                                 style={{ color: 'var(--green)', textDecoration: 'none', borderBottom: '1px solid rgba(0,229,160,0.3)' }}>
-                                Atyant.Tech
+                                Atyant.in
                             </a>{' '}
-                            - AI automation agency that builds custom tools, workflows, and internal systems for businesses.
-                            I build practical systems for founders, professors, and brands —
-                            not demo projects, not theory, just tools that solve real operational problems.
+                            — a live AI mentorship platform with 1500+ students and 500+ mentors. I've worked with IIM professors, D2C brands, and SaaS founders to build Shopify automations, AI chatbots, WhatsApp integrations, and custom dashboards. No templates. No fluff. Just tools that work.
                         </p>
                         {/* Links */}
                         <div className="about-links" style={{ display: 'flex', gap: '1rem', marginTop: '1.5rem', flexWrap: 'wrap' }}>

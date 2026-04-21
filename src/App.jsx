@@ -9,6 +9,8 @@ import CTA from './components/CTA'
 import Footer from './components/Footer'
 import About from './components/About'
 import Testimonials from './components/Testimonials'
+import Services from './components/Services'
+import TrustSignals from './components/TrustSignals'
 
 export default function App() {
   return (
@@ -18,9 +20,11 @@ export default function App() {
       <main>
         <Hero />
         <Marquee />
-        <About />         // ← new
+        <About />
+        <TrustSignals />
         <Tools />
-        <Testimonials />  // ← new
+        <Services />
+        <Testimonials />
         <Clients />
         <Stack />
         <CTA />

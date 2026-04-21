@@ -24,9 +24,9 @@ export default function Hero() {
         pointerEvents: 'none',
       }} />
 
-      <div style={{ position: 'relative', zIndex: 1, maxWidth: 820 }}>
+      <div style={{ position: 'relative', zIndex: 1, maxWidth: 815 }}>
         <style>{`
-          @keyframes fadeUp { from{opacity:0;transform:translateY(20px)} to{opacity:1;transform:translateY(0)} }
+          @keyframes fadeUp { from{opacity:0;transform:translateY(15px)} to{opacity:1;transform:translateY(0)} }
           .hu1{opacity:0;animation:fadeUp .8s ease .1s forwards}
           .hu2{opacity:0;animation:fadeUp .8s ease .25s forwards}
           .hu3{opacity:0;animation:fadeUp .8s ease .4s forwards}
@@ -41,22 +41,22 @@ export default function Hero() {
           color: 'var(--green)', letterSpacing: '0.15em', marginBottom: '2rem',
         }}>
           <div style={{ width: 6, height: 6, background: 'var(--green)', borderRadius: '50%' }} />
-          AI AUTOMATION BUILDER · Made In India
+          AVAILABLE FOR US CLIENTS · 24HR TURNAROUND
         </div>
 
         <h1 className="hu2" style={{
           fontSize: 'clamp(2.8rem, 7vw, 5.5rem)', fontWeight: 800,
           lineHeight: 1, letterSpacing: '-0.03em', marginBottom: '1.5rem',
         }}>
-          I build tools<br />
-          <span style={{ color: 'var(--green)' }}>that actually work.</span>
+          I automate what's<br />
+          <span style={{ color: 'var(--green)' }}>eating your time.</span>
         </h1>
 
         <p className="hu3" style={{
           fontSize: '1.1rem', color: 'var(--muted)', lineHeight: 1.75,
-          maxWidth: 520, margin: '0 auto 3rem',
+          maxWidth: 515, margin: '0 auto 3rem',
         }}>
-          Custom AI automations, scrapers, Shopify pipelines, and web solutions — built for real clients with real problems. Not templates. Not demos. Tools.
+          AI automations, Shopify integrations, and custom dashboards for US small businesses and D2C brands. I help you recover revenue, cut manual work, and scale faster — without hiring a full dev team.
         </p>
 
         <div className="hu4" style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
@@ -71,11 +71,14 @@ export default function Hero() {
               borderRadius: 6, letterSpacing: '0.02em',
               transition: 'opacity .2s, transform .15s',
             }}
-          >See My Tools ↓</button>
+          >See Case Studies ↓</button>
 
           <button
             data-hover
-            onClick={() => go('cta')}
+            onClick={() => {
+              const msg = `Hi Nitin! I'd like to book a 15-minute call to discuss my project. Looking forward to connecting!`
+              window.open(`https://wa.me/919753324876?text=${encodeURIComponent(msg)}`, '_blank')
+            }}
             onMouseEnter={e => { e.currentTarget.style.borderColor = 'rgba(0,229,160,0.6)'; e.currentTarget.style.color = 'var(--green)' }}
             onMouseLeave={e => { e.currentTarget.style.borderColor = 'var(--border2)'; e.currentTarget.style.color = 'var(--muted)' }}
             style={{
@@ -86,7 +89,7 @@ export default function Hero() {
             }}
           >
             <span style={{ width: 6, height: 6, borderRadius: '50%', background: 'var(--green)', display: 'inline-block', animation: 'blink 1.5s infinite' }} />
-            Tell Me Your Problem →
+            Book a 15-Min Call →
           </button>
         </div>
       </div>

@@ -18,7 +18,7 @@ function ToolCard({ tool, index }) {
         position: 'relative', overflow: 'hidden',
         transition: 'background 0.3s, opacity 0.5s ease, transform 0.5s ease',
         opacity: visible ? 1 : 0,
-        transform: visible ? 'translateY(0)' : 'translateY(20px)',
+        transform: visible ? 'translateY(0)' : 'translateY(15px)',
         transitionDelay: `${index * 0.08}s`,
       }}
     >
@@ -81,18 +81,18 @@ export default function Tools() {
   return (
     <section id="tools" style={{ padding: 'var(--section-pad)' }}>
       <div ref={ref} style={{
-        opacity: visible ? 1 : 0, transform: visible ? 'translateY(0)' : 'translateY(20px)',
+        opacity: visible ? 1 : 0, transform: visible ? 'translateY(0)' : 'translateY(15px)',
         transition: 'opacity .6s ease, transform .6s ease',
       }}>
         <div style={{ fontFamily: "'Space Mono', monospace", fontSize: 11, color: 'var(--green)', letterSpacing: '0.25em', marginBottom: '0.75rem', display: 'flex', alignItems: 'center', gap: 8 }}>
-          <span style={{ display: 'block', width: 20, height: 1, background: 'var(--green)' }} />
-          TOOLS BUILT
+          <span style={{ display: 'block', width: 15, height: 1, background: 'var(--green)' }} />
+          CASE STUDIES
         </div>
         <h2 style={{ fontSize: 'clamp(1.8rem,4vw,3rem)', fontWeight: 800, letterSpacing: '-0.02em', lineHeight: 1.1, marginBottom: '0.5rem' }}>
-          Every project = a real tool.
+          Real projects. Real results.
         </h2>
         <p style={{ color: 'var(--muted)', fontSize: '0.95rem', lineHeight: 1.7, maxWidth: 500, marginBottom: '3rem' }}>
-          I don't just write code. I solve specific problems with specific tools — built fast, deployed for real users.
+          Here's what I've built for clients like you — with measurable ROI, not just features.
         </p>
       </div>
 

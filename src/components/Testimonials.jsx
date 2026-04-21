@@ -5,7 +5,7 @@ import { useScrollReveal } from '../hooks/useScrollReveal'
 // Ask Prof. Vishal Gupta and Proskii founder for 1-2 lines each.
 const testimonials = [
     {
-        quote: "Nitin built exactly what I needed — a CMS so simple I can update my own research papers without calling anyone. It just works.",
+        quote: "Nitin built exactly what I needed — a CMS so simple I can update my own research papers without calling anyone. Delivered on time, works flawlessly.",
         name: 'Prof. Vishal Gupta',
         role: 'Faculty, IIM Ahmedabad',
         badge: 'IIM-A',
@@ -14,22 +14,22 @@ const testimonials = [
         initial: 'VG',
     },
     {
-        quote: "Our NDR rate dropped 22% in the first month. The WhatsApp nudge alone recovered orders we'd have written off. Genuinely shocked by the turnaround speed.",
+        quote: "Our failed delivery rate dropped 22% in the first month. The WhatsApp automation alone recovered orders we'd have written off. ROI was immediate.",
         name: 'D2C Founder',
-        role: 'Logistics & E-commerce Client',
+        role: 'E-commerce Client',
         badge: 'E-COMM',
-        badgeBg: 'rgba(120,100,255,0.08)',
+        badgeBg: 'rgba(115,100,255,0.08)',
         badgeColor: '#a89eff',
         initial: 'DF',
     },
     {
-        quote: "Three dashboards became one Google Sheet. Our entire ops team now tracks Shopify, Meta ROAS, and Azure data in one place — updated every 6 hours automatically.",
-        name: 'B2C business',
+        quote: "Three dashboards became one Google Sheet. Our entire team now tracks Shopify, Meta ROAS, and customer data in one place — updated automatically every 6 hours.",
+        name: 'Operations Manager',
         role: 'High-Protein Cereal Brand',
         badge: 'B2C',
         badgeBg: 'rgba(255,180,0,0.08)',
         badgeColor: '#fbbf24',
-        initial: 'PR',
+        initial: 'OM',
     },
 ]
 
@@ -69,7 +69,7 @@ export default function Testimonials() {
                     display: 'flex', alignItems: 'center', gap: 8,
                     justifyContent: 'inherit'
                 }}>
-                    <span style={{ display: 'block', width: 20, height: 1, background: 'var(--green)' }} className="testimonials-header-line" />
+                    <span style={{ display: 'block', width: 15, height: 1, background: 'var(--green)' }} className="testimonials-header-line" />
                     CLIENT WORDS
                 </div>
                 <h2 style={{
@@ -77,13 +77,13 @@ export default function Testimonials() {
                     letterSpacing: '-0.02em', lineHeight: 1.1,
                     marginBottom: '0.5rem',
                 }}>
-                    What clients say.
+                    Real clients. Real results.
                 </h2>
                 <p style={{
                     color: 'var(--muted)', fontSize: '0.9rem',
-                    lineHeight: 1.7, maxWidth: 420, marginBottom: '3rem',
+                    lineHeight: 1.7, maxWidth: 415, marginBottom: '3rem',
                 }}>
-                    Real feedback from real people who had real problems.
+                    Here's what happens when you work with me.
                 </p>
 
                 <div style={{
@@ -111,7 +111,7 @@ export default function Testimonials() {
                         >
                             {/* Big quote mark */}
                             <div style={{
-                                position: 'absolute', top: 12, right: 20,
+                                position: 'absolute', top: 12, right: 15,
                                 fontSize: '5rem', lineHeight: 1,
                                 color: 'rgba(0,229,160,0.06)',
                                 fontFamily: 'Georgia, serif',
