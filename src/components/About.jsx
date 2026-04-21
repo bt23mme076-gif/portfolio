@@ -4,7 +4,7 @@ import { useScrollReveal } from '../hooks/useScrollReveal'
 const PHOTO_URL = 'https://unavatar.io/linkedin/nitin-rai-479ab7288'
 
 const stats = [
-    { num: '1500+', label: 'USERS SERVED' },
+    { num: '2000+', label: 'USERS SERVED' },
     { num: '22%', label: 'AVG NDR DROP' },
     { num: '<24hr', label: 'RESPONSE TIME' },
     { num: '$500+', label: 'PROJECTS FROM' },
