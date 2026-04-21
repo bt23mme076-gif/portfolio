@@ -1,7 +1,8 @@
 import { useScrollReveal } from '../hooks/useScrollReveal'
 
-// ✅ Using LinkedIn profile photo proxy (won't expire)
-const PHOTO_URL = 'https://unavatar.io/linkedin/nitin-rai-479ab7288'
+// ✅ Professional placeholder with your initials (dark theme matching)
+// TO ADD YOUR REAL PHOTO: Upload to imgur.com and replace this link
+const PHOTO_URL = 'https://ui-avatars.com/api/?name=Nitin+Rai&size=400&background=0D1117&color=00e5a0&bold=true&font-size=0.35'
 
 const stats = [
     { num: '2000+', label: 'USERS SERVED' },
